@@ -23,9 +23,9 @@ body{
     align-items: center;
 }
 .header h1{
-    color: rgb(77, 157, 218);
-    text-decoration: underline;
-    font-size: 18px;
+    color: rgb(252, 0, 201);
+    font-style: italic;
+    font-size: 30px;
     margin-top: 30px;
     margin-left: -30px;
     font-family: 'Orbitron', sans-serif;
