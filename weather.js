@@ -56,9 +56,28 @@ function weatherReport(data){
         document.getElementById('clouds').innerText= data.weather[0].description;
         console.log(data.weather[0].description)
         
-        let icon1= data.weather[0].icon;
-        let iconurl= "http://api.openweathermap.org/img/w/"+ icon1 +".png";
-        document.getElementById('img').src=iconurl
+        const image =document.querySelector(".icon");
+        if (data.weather[0].main=="Clouds"){
+            image.src="clouds.png"
+        } else if(data.weather[0].main=="Thunderstorm"){
+            image.src="thunderstorm.png"
+        }
+        else if(data.weather[0].main=="Drizzle"){
+            image.src="drizzle.png"
+        }
+        else if(data.weather[0].main=="Rain"){
+            image.src="heavy-rain.png"
+        }
+        else if(data.weather[0].main=="Snow"){
+            image.src="snow.png"
+        }
+        else if(data.weather[0].main=="Clear"){
+            image.src="sunny.png"
+        }
+        else if(data.weather[0].main=="Atmosphere"){
+            image.src="mist.png"
+        }
+
     })
 
 }
