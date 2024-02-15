@@ -1,162 +1,123 @@
-@import url('https://fonts.googleapis.com/css2?family=Concert+One:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
-html{
-    height: 100%;
-}
-h1{
-    text-align: center;
-}
-body{
-    background: whitesmoke;
-    padding: 1rem 5rem;
-    font-family: 'Roboto', sans-serif;
-    text-transform: capitalize;
-    background: linear-gradient(45deg,rgba(0, 5, 15, 0.167),rgba(0, 0, 0, 0.386)), url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffree4kwallpapers.com%2Fuploads%2Foriginals%2F2019%2F07%2F08%2Fbeautiful-sky-clouds-wallpaper.jpg&f=1&nofb=1&ipt=9e4ba0e131a42f4ab6d5425f78d253438afcb0dac37fd44afce818e11a172cb1&ipo=images');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StormStalk</title>
+    <link rel="stylesheet" href="weather.css"> 
+</head>
+<body>
     
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-.header{
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-}
-.header h1{
-    color: rgb(252, 0, 201);
-    font-style: italic;
-    font-size: 30px;
-    margin-top: 30px;
-    margin-left: -30px;
-    font-family: 'Orbitron', sans-serif;
-}
-#input{
-    font-size: 18px;
-    padding: 5px 10px;
-    outline: none;
-    border: none;
-    margin-left: 650px ;
-    border-radius: 50px;
-    background: aliceblue;
-}
-#logo{
-    width: 50px;
-    padding: 0px 30px;
-    height: 50px;
-}
-#search{
-    background: none;
-    padding: 5px 10px;
-    color: aliceblue;
-    outline: none;
-    background: rgb(95, 130, 160);
-    font-size: 17px;
-    border-radius: 50px;
-    cursor: pointer;
-    border: none;
-}
-.weather{
-    text-align: center;
-    color: aliceblue;
-}
-#city{
-    font-size: 30px;
-}
-.weather img{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: rgba(240, 248, 255, 0.408);
-}
-#temperature{
-    font-size: 50px;
-    margin: 0;
-    margin-left: 30px;
-    margin-bottom: 10px;
-}
-.temp-box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0;
-}
-#clouds{
-    font-size: 20px;
-    background:rgb(43, 45, 45);
-    padding: 2px 20px;
-    border-radius: 15px;
-}
-main{
-    display: grid;
-    grid-column-gap: 25px;
-    grid-template-columns: 1fr 5px 1fr;
-    align-items: center;
-    margin: 0 50px;
-    color: white;
-}
-.next{
-    display: flex;
-    justify-content: space-around ;
-    align-items: center;
-    margin: 10px 0;
-}
-.next p,.next h3{
-    margin: 3px 0;
-}
-.forecstD{
-    margin: 20px 50px;
-    color: aliceblue;
-}
-.weekF{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-}
-.cast-header{
-    color: aliceblue;
-    background: rgba(21, 255, 0, 0.539);
-    width: max-content;
-    padding: 5px 15px;
-    border-radius: 30px;
-    font-size: 15px;
-    margin-bottom: 5px;
-}
-.divider1,.divider2{
-    background: rgba(26, 241, 11, 0.539);
-    height: 200px;
-    border-radius: 5px;
-}
-.divider2{
-    height: 5px;
-    width: 30%;
-    margin: 0 auto;
-}
-.time,.date{
-    color: rgb(211, 196, 21);
-}
-.desc{
-    color: rgb(20, 201, 233);
-    
-}
-/* Add these styles to your existing weather.css file or create a new one */
+    <div class="header">
+        <div><img src="/icon.jpg" alt="" id="logo"></div>
+        <!-- heading -->
+      <h1>Storm Stalk</h1>
+        
 
-.temp-box {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
+      <!-- Search bar for city -->
+        <div>
+            <input  type="text" name="" id="input" placeholder="Input your city">
+            <button id="search" onclick="searchByCity()">Seek<span>&#10230;</span></button></input>
+        </div>
+    </div>
 
-.temp-box img {
-    width: 300px; /* Adjust the size as needed */
-    height: 300px;
-    margin-right: 10px;
-}
+    <main>   
 
-.rainy {
-    background-color: #070707; /* Adjust the background color for rainy weather */
-    color: #ffffff; /* Adjust the text color for rainy weather */
-}
+        <!-- left side display (current weather) -->
+        <div class="temp-box">
+            <img src="sunny.png" class="icon" alt="" >
+            <div class="weather">
+                <h2 id="city">Delhi,IN</h2>
+            <p id="temperature">26 °C</p>
+                <span id="clouds">Broken Clouds</span>
+            </div>
+        </div>     
+        
+        <!-- divider between current weather and upcoming forecast -->
+        <div class="divider1"></div>
 
-.cloudy {
-    background-color: #c0c0c0; /* Adjust the background color for cloudy weather */
-    color: #000000; /* Adjust the text color for cloudy weather */
-}
+
+        <div class="forecstH">
+            <!-- Right side -> Upcoming Forecast -->
+            <p class="cast-header">Upcoming forecast</p>
+            <div class="templist">
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="forecstD">
+        <!-- divider between upper half and lower -->
+        <div class="divider2"></div> 
+        <p class="cast-header"> Next 4 days forecast</p>
+        <div class="weekF">
+
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+        </div>
+    </div>
+    <script src="/weather.js"></script>
+</body>
+</html>
