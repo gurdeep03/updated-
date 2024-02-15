@@ -1,123 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StormStalk</title>
-    <link rel="stylesheet" href="weather.css"> 
-</head>
-<body>
+/* entire html  */
+html {
+    height: 100%;
+    width: 100%;
     
-    <div class="header">
-        <div><img src="/icon.jpg" alt="" id="logo"></div>
-        <!-- heading -->
-      <h1>Storm Stalk</h1>
-        
+}
 
-      <!-- Search bar for city -->
-        <div>
-            <input  type="text" name="" id="input" placeholder="Input your city">
-            <button id="search" onclick="searchByCity()">Seek<span>&#10230;</span></button></input>
-        </div>
-    </div>
+body {
+    background: whitesmoke;
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+    background: linear-gradient(45deg, rgba(0, 5, 15, 0.167), rgba(0, 0, 0, 0.386)), url('background.jpg');
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-size: cover;
+}
 
-    <main>   
+/* logo and heading */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
 
-        <!-- left side display (current weather) -->
-        <div class="temp-box">
-            <img src="sunny.png" class="icon" alt="" >
-            <div class="weather">
-                <h2 id="city">Delhi,IN</h2>
-            <p id="temperature">26 °C</p>
-                <span id="clouds">Broken Clouds</span>
-            </div>
-        </div>     
-        
-        <!-- divider between current weather and upcoming forecast -->
-        <div class="divider1"></div>
+/* main heading (Storm Stalk) */
+.header h1 {
+    color: #00fbff;
+    font-style: italic;
+    font-size: 24px;
+    margin-top: -30px;
+    font-family: 'Orbitron', sans-serif;
+}
 
+/* divider between left(current forecast) and right(upcoming forecast) */
+.divider1{
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
 
-        <div class="forecstH">
-            <!-- Right side -> Upcoming Forecast -->
-            <p class="cast-header">Upcoming forecast</p>
-            <div class="templist">
+/* for city search */
+#input {
+    font-size: 16px;
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background: aliceblue;
+    width: 60%;
+    max-width: 300px;
+}
 
-                <div class="next">
-                    <div>
-                        <p class="time">8:30 PM</p>
-                        <p>29 °C / 29 °C</p>
-                    </div>
-                    <p class="desc">Light Rain</p>
-                </div>
+/* search button */
+#search {
+    padding: 5px 10px;
+    color: aliceblue;
+    outline: none;
+    background: rgb(95, 130, 160);
+    font-size: 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
 
-                <div class="next">
-                    <div>
-                        <p class="time">8:30 PM</p>
-                        <p>29 °C / 29 °C</p>
-                    </div>
-                    <p class="desc">Light Rain</p>
-                </div>
+#search span {
+    margin-left: 10px;
+    width: 0;
+    overflow: hidden;
+    transition: 0.5s;
+}
 
-                <div class="next">
-                    <div>
-                        <p class="time">8:30 PM</p>
-                        <p>29 °C / 29 °C</p>
-                    </div>
-                    <p class="desc">Light Rain</p>
-                </div>
+#search:hover span {
+    width: 30px;
+}
 
-                <div class="next">
-                    <div>
-                        <p class="time">8:30 PM</p>
-                        <p>29 °C / 29 °C</p>
-                    </div>
-                    <p class="desc">Light Rain</p>
-                </div>
+/* current weather class -> temp-box */
+.temp-box {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    flex-direction: column;
+}
 
-                <div class="next">
-                    <div>
-                        <p class="time">8:30 PM</p>
-                        <p>29 °C / 29 °C</p>
-                    </div>
-                    <p class="desc">Light Rain</p>
-                </div>
+.temp-box img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
 
-            </div>
-        </div>
-    </main>
+.weather {
+    text-align: center;
+    color: aliceblue;
+}
 
-    <div class="forecstD">
-        <!-- divider between upper half and lower -->
-        <div class="divider2"></div> 
-        <p class="cast-header"> Next 4 days forecast</p>
-        <div class="weekF">
+#city {
+    font-size: 24px;
+}
 
-            <div class="dayF">
-                <p class="date">Sun Jul 03 2022</p>
-                <p>31 °C / 31 °C</p>
-                <p class="desc">Overcast Clouds</p>
-            </div>
+.weather img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(240, 248, 255, 0.408);
+}
 
-            <div class="dayF">
-                <p class="date">Sun Jul 03 2022</p>
-                <p>31 °C / 31 °C</p>
-                <p class="desc">Overcast Clouds</p>
-            </div>
+#temperature {
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 10px;
+}
 
-            <div class="dayF">
-                <p class="date">Sun Jul 03 2022</p>
-                <p>31 °C / 31 °C</p>
-                <p class="desc">Overcast Clouds</p>
-            </div>
+#clouds {
+    font-size: 20px;
+    background: rgb(43, 45, 45);
+    padding: 2px 20px;
+    border-radius: 15px;
+}
 
-            <div class="dayF">
-                <p class="date">Sun Jul 03 2022</p>
-                <p>31 °C / 31 °C</p>
-                <p class="desc">Overcast Clouds</p>
-            </div>
-        </div>
-    </div>
-    <script src="/weather.js"></script>
-</body>
-</html>
+main {
+    display: grid;
+    grid-column-gap: 25px;
+    grid-template-columns: 1fr;
+    align-items: center;
+    margin: 0 1rem;
+    color: white;
+}
+
+/* upcoming forecast -> next */
+.next {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.next p,
+.next h3 {
+    margin: 3px 0;
+}
+
+/* next 4 days forecast -> forecstD */
+.forecstD {
+    margin: 20px 1rem;
+    color: aliceblue;
+}
+
+.weekF {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.cast-header {
+    color: aliceblue;
+    background: rgba(21, 255, 0, 0.539);
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+ /* divider between current weather and upcoming forecast  */
+.divider1 {
+    background: rgba(26, 241, 11, 0.539);
+    width: 10px; /* Adjust the thickness as needed */
+    height: 100%; /* Make the divider span the full height */
+    border-radius: 5px;
+    left: 50%;
+}
+
+.divider2{
+    height: 5px;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.time,
+.date {
+    color: rgb(211, 196, 21);
+}
+
+.desc {
+    color: rgb(20, 201, 233);
+}
+
+/* Media Queries for Responsiveness */
+@media only screen and (min-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #input {
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    #search {
+        margin-top: 10px;
+    }
+
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
