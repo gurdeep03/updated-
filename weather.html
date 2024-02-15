@@ -4,39 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEATHER APP</title>
-    <link rel="stylesheet" href="weather.css">
+    <title>StormStalk</title>
+    <link rel="stylesheet" href="weather.css"> 
 </head>
 <body>
     
     <div class="header">
-        <div><img src="/weathericon.png" alt="" id="logo"></div>
-      <h1>Strom Stalk</h1>
-        
-        
+        <div><img src="/icon.jpg" alt="" id="logo"></div>
+        <!-- heading -->
+      <h1>Storm Stalk</h1>
         
 
+      <!-- Search bar for city -->
         <div>
-            <input  type="text" name="" id="input" placeholder="Enter city name">
-            <button id="search" onclick="searchByCity()">Search</button></input>
+            <input  type="text" name="" id="input" placeholder="Input your city">
+            <button id="search" onclick="searchByCity()">Seek<span>&#10230;</span></button></input>
         </div>
     </div>
 
     <main>   
+
+        <!-- left side display (current weather) -->
         <div class="temp-box">
             <img src="sunny.png" class="icon" alt="" >
             <div class="weather">
                 <h2 id="city">Delhi,IN</h2>
             <p id="temperature">26 °C</p>
-
-                
                 <span id="clouds">Broken Clouds</span>
             </div>
         </div>     
         
+        <!-- divider between current weather and upcoming forecast -->
         <div class="divider1"></div>
 
+
         <div class="forecstH">
+            <!-- Right side -> Upcoming Forecast -->
             <p class="cast-header">Upcoming forecast</p>
             <div class="templist">
 
@@ -85,7 +88,8 @@
     </main>
 
     <div class="forecstD">
-        <div class="divider2"></div>
+        <!-- divider between upper half and lower -->
+        <div class="divider2"></div> 
         <p class="cast-header"> Next 4 days forecast</p>
         <div class="weekF">
 
